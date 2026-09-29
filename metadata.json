@@ -1,0 +1,6 @@
+{
+  "name": "Memoria — Karteikarten & Spaced Repetition",
+  "description": "Ruhige, ästhetische Karteikarten-App mit Fächern, Spaced-Repetition-Algorithmus, mehrfarbigem Lernfortschrittsbalken und KI-Generierung aus Fotos, Skripten und Tabellen.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
