@@ -162,20 +162,20 @@ export const CreateCardModal: React.FC<CreateCardModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/30 backdrop-blur-xs">
-      <div className="bg-white rounded-xl border border-stone-200 shadow-xl max-w-xl w-full max-h-[85vh] flex flex-col overflow-hidden">
+      <div className="bg-[#FFFFFF] rounded-xl border border-[#E6E1D7] shadow-xl max-w-xl w-full max-h-[85vh] flex flex-col overflow-hidden">
         {/* Modal Header */}
-        <div className="px-5 py-3.5 border-b border-stone-100 flex items-center justify-between">
+        <div className="px-5 py-3.5 border-b border-[#EFEBE4] flex items-center justify-between">
           <div>
-            <h3 className="font-serif-display text-lg text-stone-900 font-normal">
+            <h3 className="font-serif-display text-lg text-[#2A2723] font-normal">
               Karteikarten hinzufügen
             </h3>
-            <p className="text-[11px] text-stone-500">
-              Zu: <span className="font-medium text-stone-800">{deck.title}</span>
+            <p className="text-[11px] text-[#756E65]">
+              Zu: <span className="font-medium text-[#2A2723]">{deck.title}</span>
             </p>
           </div>
           <button
             onClick={onClose}
-            className="p-1 text-stone-400 hover:text-stone-700 rounded transition-colors cursor-pointer"
+            className="p-1 text-[#878077] hover:text-[#2A2723] rounded transition-colors cursor-pointer"
           >
             <X className="w-4 h-4" />
           </button>
@@ -186,16 +186,16 @@ export const CreateCardModal: React.FC<CreateCardModalProps> = ({
           <div className="flex-1 overflow-y-auto p-5 flex flex-col">
             <div className="flex items-center justify-between mb-3">
               <div>
-                <h4 className="font-medium text-xs text-stone-800">
+                <h4 className="font-medium text-xs text-[#2A2723]">
                   {draftCards.length} Karten erkannt
                 </h4>
-                <p className="text-[11px] text-stone-500">
+                <p className="text-[11px] text-[#756E65]">
                   Wähle die gewünschten Karten aus oder passe den Text an.
                 </p>
               </div>
               <button
                 onClick={() => setDraftCards([])}
-                className="text-[11px] text-stone-500 hover:text-stone-800 underline"
+                className="text-[11px] text-[#756E65] hover:text-[#2A2723] underline"
               >
                 Zurück
               </button>
@@ -207,8 +207,8 @@ export const CreateCardModal: React.FC<CreateCardModalProps> = ({
                   key={idx}
                   className={`p-3 rounded-lg border transition-colors ${
                     card.selected
-                      ? 'border-stone-300 bg-stone-50/60'
-                      : 'border-stone-200 bg-white opacity-50'
+                      ? 'border-[#C8BFB0] bg-[#FAF8F5]'
+                      : 'border-[#E6E1D7] bg-[#FFFFFF] opacity-50'
                   }`}
                 >
                   <div className="flex items-start gap-2.5">
@@ -216,29 +216,29 @@ export const CreateCardModal: React.FC<CreateCardModalProps> = ({
                       type="checkbox"
                       checked={card.selected}
                       onChange={() => toggleDraftSelection(idx)}
-                      className="mt-1 rounded text-stone-900 focus:ring-0 cursor-pointer"
+                      className="mt-1 rounded text-[#2A2723] focus:ring-0 cursor-pointer accent-[#2A2723]"
                     />
                     <div className="flex-1 space-y-1.5">
                       <div>
-                        <label className="block text-[10px] text-stone-500 uppercase font-medium">
+                        <label className="block text-[10px] text-[#756E65] uppercase font-medium">
                           Vorderseite (Frage)
                         </label>
                         <input
                           type="text"
                           value={card.front}
                           onChange={(e) => updateDraftCard(idx, 'front', e.target.value)}
-                          className="w-full text-xs font-medium text-stone-900 bg-white border border-stone-200 rounded px-2 py-1 focus:outline-none focus:border-stone-400"
+                          className="w-full text-xs font-medium text-[#2A2723] bg-[#FFFFFF] border border-[#E2DDD3] rounded px-2 py-1 focus:outline-none focus:border-[#786E63]"
                         />
                       </div>
                       <div>
-                        <label className="block text-[10px] text-stone-500 uppercase font-medium">
+                        <label className="block text-[10px] text-[#756E65] uppercase font-medium">
                           Rückseite (Antwort)
                         </label>
                         <textarea
                           rows={2}
                           value={card.back}
                           onChange={(e) => updateDraftCard(idx, 'back', e.target.value)}
-                          className="w-full text-xs text-stone-700 bg-white border border-stone-200 rounded px-2 py-1 focus:outline-none focus:border-stone-400"
+                          className="w-full text-xs text-[#2A2723] bg-[#FFFFFF] border border-[#E2DDD3] rounded px-2 py-1 focus:outline-none focus:border-[#786E63]"
                         />
                       </div>
                     </div>
@@ -247,20 +247,20 @@ export const CreateCardModal: React.FC<CreateCardModalProps> = ({
               ))}
             </div>
 
-            <div className="pt-3 mt-3 border-t border-stone-100 flex items-center justify-between">
-              <span className="text-[11px] text-stone-500">
+            <div className="pt-3 mt-3 border-t border-[#EFEBE4] flex items-center justify-between">
+              <span className="text-[11px] text-[#756E65]">
                 {draftCards.filter((c) => c.selected).length} von {draftCards.length} ausgewählt
               </span>
               <div className="flex gap-2">
                 <button
                   onClick={() => setDraftCards([])}
-                  className="px-3 py-1.5 text-xs text-stone-600 hover:text-stone-900"
+                  className="px-3 py-1.5 text-xs text-[#756E65] hover:text-[#2A2723]"
                 >
                   Abbrechen
                 </button>
                 <button
                   onClick={handleImportDrafts}
-                  className="px-3.5 py-1.5 text-xs font-medium text-white bg-stone-900 hover:bg-stone-800 rounded-lg transition-colors cursor-pointer"
+                  className="px-3.5 py-1.5 text-xs font-medium text-[#FAF8F5] bg-[#2A2723] hover:bg-[#1C1A18] rounded-lg transition-colors cursor-pointer"
                 >
                   {draftCards.filter((c) => c.selected).length} Karten übernehmen
                 </button>
@@ -270,13 +270,13 @@ export const CreateCardModal: React.FC<CreateCardModalProps> = ({
         ) : (
           <>
             {/* Tab Selection: Only Table, Text AI, and Manual */}
-            <div className="flex border-b border-stone-200 px-5 text-xs">
+            <div className="flex border-b border-[#EFEBE4] px-5 text-xs">
               <button
                 onClick={() => setActiveTab('table')}
                 className={`py-2.5 px-3 font-medium transition-colors border-b-2 flex items-center gap-1.5 cursor-pointer ${
                   activeTab === 'table'
-                    ? 'border-stone-900 text-stone-900'
-                    : 'border-transparent text-stone-500 hover:text-stone-800'
+                    ? 'border-[#2A2723] text-[#2A2723]'
+                    : 'border-transparent text-[#756E65] hover:text-[#2A2723]'
                 }`}
               >
                 <FileText className="w-3.5 h-3.5" />
@@ -286,19 +286,19 @@ export const CreateCardModal: React.FC<CreateCardModalProps> = ({
                 onClick={() => setActiveTab('text')}
                 className={`py-2.5 px-3 font-medium transition-colors border-b-2 flex items-center gap-1.5 cursor-pointer ${
                   activeTab === 'text'
-                    ? 'border-stone-900 text-stone-900'
-                    : 'border-transparent text-stone-500 hover:text-stone-800'
+                    ? 'border-[#2A2723] text-[#2A2723]'
+                    : 'border-transparent text-[#756E65] hover:text-[#2A2723]'
                 }`}
               >
-                <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                <Sparkles className="w-3.5 h-3.5 text-[#B08244]" />
                 <span>Text / Thema (KI)</span>
               </button>
               <button
                 onClick={() => setActiveTab('manual')}
                 className={`py-2.5 px-3 font-medium transition-colors border-b-2 flex items-center gap-1.5 cursor-pointer ${
                   activeTab === 'manual'
-                    ? 'border-stone-900 text-stone-900'
-                    : 'border-transparent text-stone-500 hover:text-stone-800'
+                    ? 'border-[#2A2723] text-[#2A2723]'
+                    : 'border-transparent text-[#756E65] hover:text-[#2A2723]'
                 }`}
               >
                 <Edit3 className="w-3.5 h-3.5" />
@@ -312,12 +312,12 @@ export const CreateCardModal: React.FC<CreateCardModalProps> = ({
               {activeTab === 'table' && (
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <p className="text-xs text-stone-500">
+                    <p className="text-xs text-[#756E65]">
                       Kopiere deine Tabelle aus ChatGPT, Excel oder Markdown hier hinein:
                     </p>
                     <button
                       onClick={handleInsertExampleTable}
-                      className="text-[11px] text-amber-800 hover:underline cursor-pointer"
+                      className="text-[11px] text-[#B08244] hover:underline cursor-pointer"
                     >
                       Beispieltabelle
                     </button>
@@ -328,11 +328,11 @@ export const CreateCardModal: React.FC<CreateCardModalProps> = ({
                     value={tableInputText}
                     onChange={(e) => setTableInputText(e.target.value)}
                     placeholder={`| Frage | Antwort | Hinweis |\n| Was ist X? | Erklärung von X | Tipp |`}
-                    className="w-full font-mono text-xs text-stone-800 border border-stone-200 rounded-lg p-2.5 bg-stone-50/40 focus:bg-white focus:outline-none focus:border-stone-400"
+                    className="w-full font-mono text-xs text-[#2A2723] border border-[#E2DDD3] rounded-lg p-2.5 bg-[#FAF8F5] focus:bg-[#FFFFFF] focus:outline-none focus:border-[#786E63]"
                   />
 
                   {tableError && (
-                    <div className="p-2 bg-rose-50 text-rose-800 text-xs rounded border border-rose-200 flex items-center gap-1.5">
+                    <div className="p-2 bg-[#FAF3F1] text-[#873B2E] text-xs rounded border border-[#E6D3CE] flex items-center gap-1.5">
                       <AlertCircle className="w-3.5 h-3.5 shrink-0" />
                       <span>{tableError}</span>
                     </div>
@@ -342,7 +342,7 @@ export const CreateCardModal: React.FC<CreateCardModalProps> = ({
                     <button
                       onClick={handleParseTable}
                       disabled={!tableInputText.trim()}
-                      className="px-4 py-2 text-xs font-medium text-white bg-stone-900 hover:bg-stone-800 rounded-lg transition-colors disabled:opacity-40 cursor-pointer"
+                      className="px-4 py-2 text-xs font-medium text-[#FAF8F5] bg-[#2A2723] hover:bg-[#1C1A18] rounded-lg transition-colors disabled:opacity-40 cursor-pointer"
                     >
                       Tabelle analysieren
                     </button>
@@ -353,7 +353,7 @@ export const CreateCardModal: React.FC<CreateCardModalProps> = ({
               {/* TAB 2: Text AI */}
               {activeTab === 'text' && (
                 <div className="space-y-3">
-                  <p className="text-xs text-stone-500">
+                  <p className="text-xs text-[#756E65]">
                     Füge Mitschriften, Notizen oder ein Thema ein – die KI formuliert strukturierte Karteikarten:
                   </p>
 
@@ -362,11 +362,11 @@ export const CreateCardModal: React.FC<CreateCardModalProps> = ({
                     value={promptText}
                     onChange={(e) => setPromptText(e.target.value)}
                     placeholder="z.B. Notizen zu: Vegetatives Nervensystem, Sympathikus und Parasympathikus im Vergleich..."
-                    className="w-full text-xs text-stone-800 border border-stone-200 rounded-lg p-2.5 focus:outline-none focus:border-stone-400 bg-white"
+                    className="w-full text-xs text-[#2A2723] border border-[#E2DDD3] rounded-lg p-2.5 focus:outline-none focus:border-[#786E63] bg-[#FAF8F5] focus:bg-[#FFFFFF]"
                   />
 
                   {textError && (
-                    <div className="p-2 bg-rose-50 text-rose-800 text-xs rounded border border-rose-200 flex items-center gap-1.5">
+                    <div className="p-2 bg-[#FAF3F1] text-[#873B2E] text-xs rounded border border-[#E6D3CE] flex items-center gap-1.5">
                       <AlertCircle className="w-3.5 h-3.5 shrink-0" />
                       <span>{textError}</span>
                     </div>
@@ -376,7 +376,7 @@ export const CreateCardModal: React.FC<CreateCardModalProps> = ({
                     <button
                       onClick={handleGenerateFromText}
                       disabled={!promptText.trim() || isGeneratingFromText}
-                      className="px-4 py-2 text-xs font-medium text-white bg-stone-900 hover:bg-stone-800 rounded-lg disabled:opacity-40 cursor-pointer flex items-center gap-1.5"
+                      className="px-4 py-2 text-xs font-medium text-[#FAF8F5] bg-[#2A2723] hover:bg-[#1C1A18] rounded-lg disabled:opacity-40 cursor-pointer flex items-center gap-1.5"
                     >
                       {isGeneratingFromText ? (
                         <>
@@ -385,7 +385,7 @@ export const CreateCardModal: React.FC<CreateCardModalProps> = ({
                         </>
                       ) : (
                         <>
-                          <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                          <Sparkles className="w-3.5 h-3.5 text-[#E6C38A]" />
                           <span>Karten mit KI erstellen</span>
                         </>
                       )}
@@ -398,14 +398,14 @@ export const CreateCardModal: React.FC<CreateCardModalProps> = ({
               {activeTab === 'manual' && (
                 <div className="space-y-3">
                   {manualSuccessMsg && (
-                    <div className="p-2 bg-emerald-50 text-emerald-800 text-xs rounded border border-emerald-200 flex items-center gap-1.5">
+                    <div className="p-2 bg-[#F1F5F2] text-[#344D39] text-xs rounded border border-[#D0DDD2] flex items-center gap-1.5">
                       <Check className="w-3.5 h-3.5" />
                       Gespeichert! Nächste Karte erstellen:
                     </div>
                   )}
 
                   <div>
-                    <label className="block text-xs font-medium text-stone-700 mb-1">
+                    <label className="block text-xs font-medium text-[#2A2723] mb-1">
                       Vorderseite (Frage / Begriff) *
                     </label>
                     <textarea
@@ -413,13 +413,13 @@ export const CreateCardModal: React.FC<CreateCardModalProps> = ({
                       value={manualFront}
                       onChange={(e) => setManualFront(e.target.value)}
                       placeholder="z.B. Was ist das Prinzip von Spaced Repetition?"
-                      className="w-full text-xs text-stone-900 border border-stone-200 rounded-lg p-2.5 focus:outline-none focus:border-stone-400 bg-white"
+                      className="w-full text-xs text-[#2A2723] border border-[#E2DDD3] rounded-lg p-2.5 focus:outline-none focus:border-[#786E63] bg-[#FAF8F5] focus:bg-[#FFFFFF]"
                       autoFocus
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-stone-700 mb-1">
+                    <label className="block text-xs font-medium text-[#2A2723] mb-1">
                       Rückseite (Antwort / Erklärung) *
                     </label>
                     <textarea
@@ -427,12 +427,12 @@ export const CreateCardModal: React.FC<CreateCardModalProps> = ({
                       value={manualBack}
                       onChange={(e) => setManualBack(e.target.value)}
                       placeholder="z.B. Zeitlich gestaffelte Wiederholungen zur optimalen Verankerung im Langzeitgedächtnis."
-                      className="w-full text-xs text-stone-900 border border-stone-200 rounded-lg p-2.5 focus:outline-none focus:border-stone-400 bg-white"
+                      className="w-full text-xs text-[#2A2723] border border-[#E2DDD3] rounded-lg p-2.5 focus:outline-none focus:border-[#786E63] bg-[#FAF8F5] focus:bg-[#FFFFFF]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-stone-600 mb-1">
+                    <label className="block text-xs font-medium text-[#756E65] mb-1">
                       Hinweis (optional)
                     </label>
                     <input
@@ -440,7 +440,7 @@ export const CreateCardModal: React.FC<CreateCardModalProps> = ({
                       value={manualHint}
                       onChange={(e) => setManualHint(e.target.value)}
                       placeholder="z.B. Hermann Ebbinghaus"
-                      className="w-full text-xs text-stone-800 border border-stone-200 rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-stone-400 bg-white"
+                      className="w-full text-xs text-[#2A2723] border border-[#E2DDD3] rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-[#786E63] bg-[#FAF8F5] focus:bg-[#FFFFFF]"
                     />
                   </div>
 
@@ -448,14 +448,14 @@ export const CreateCardModal: React.FC<CreateCardModalProps> = ({
                     <button
                       onClick={() => handleSaveManual(true)}
                       disabled={!manualFront.trim() || !manualBack.trim()}
-                      className="px-3 py-1.5 text-xs text-stone-700 hover:bg-stone-100 rounded-lg disabled:opacity-40 cursor-pointer"
+                      className="px-3 py-1.5 text-xs text-[#756E65] hover:bg-[#FAF8F5] hover:text-[#2A2723] rounded-lg disabled:opacity-40 cursor-pointer"
                     >
                       Speichern & Nächste
                     </button>
                     <button
                       onClick={() => handleSaveManual(false)}
                       disabled={!manualFront.trim() || !manualBack.trim()}
-                      className="px-3.5 py-1.5 text-xs font-medium text-white bg-stone-900 hover:bg-stone-800 rounded-lg disabled:opacity-40 cursor-pointer"
+                      className="px-3.5 py-1.5 text-xs font-medium text-[#FAF8F5] bg-[#2A2723] hover:bg-[#1C1A18] rounded-lg disabled:opacity-40 cursor-pointer"
                     >
                       Fertig
                     </button>

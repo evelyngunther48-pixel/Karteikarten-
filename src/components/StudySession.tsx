@@ -147,41 +147,41 @@ export const StudySession: React.FC<StudySessionProps> = ({
 
     return (
       <div className="max-w-xl mx-auto px-4 py-16 text-center space-y-6">
-        <div className="bg-white border border-stone-200/80 rounded-2xl p-8 shadow-xs">
-          <div className="w-10 h-10 bg-emerald-50 text-emerald-700 rounded-full flex items-center justify-center mx-auto mb-4">
+        <div className="bg-[#FFFFFF] border border-[#E6E1D7] rounded-2xl p-8 shadow-xs">
+          <div className="w-10 h-10 bg-[#F1F5F2] text-[#344D39] rounded-full flex items-center justify-center mx-auto mb-4">
             <Check className="w-5 h-5 stroke-[2]" />
           </div>
 
-          <h2 className="font-serif-display text-2xl text-stone-900 font-normal mb-1">
+          <h2 className="font-serif-display text-2xl text-[#2A2723] font-normal mb-1">
             Lernsitzung beendet
           </h2>
-          <p className="text-stone-500 text-xs mb-6">
+          <p className="text-[#756E65] text-xs mb-6">
             {totalReviewed} Karten gelernt aus {deck.title}.
           </p>
 
-          <div className="grid grid-cols-3 gap-3 mb-6 bg-stone-50/70 p-4 rounded-xl border border-stone-100 text-center">
+          <div className="grid grid-cols-3 gap-3 mb-6 bg-[#FAF8F5] p-4 rounded-xl border border-[#EAE4D9] text-center">
             <div>
-              <div className="text-[11px] text-stone-500 mb-0.5">Gewusst</div>
-              <div className="text-xl font-semibold text-emerald-800 tabular-nums">
+              <div className="text-[11px] text-[#526654] font-medium mb-0.5">Gewusst</div>
+              <div className="text-xl font-semibold text-[#344D39] tabular-nums">
                 {sessionResults.goodCount}
               </div>
             </div>
             <div>
-              <div className="text-[11px] text-stone-500 mb-0.5">Unsicher</div>
-              <div className="text-xl font-semibold text-amber-800 tabular-nums">
+              <div className="text-[11px] text-[#B08244] font-medium mb-0.5">Unsicher</div>
+              <div className="text-xl font-semibold text-[#78561E] tabular-nums">
                 {sessionResults.hardCount}
               </div>
             </div>
             <div>
-              <div className="text-[11px] text-stone-500 mb-0.5">Wiederholen</div>
-              <div className="text-xl font-semibold text-rose-800 tabular-nums">
+              <div className="text-[11px] text-[#A05646] font-medium mb-0.5">Wiederholen</div>
+              <div className="text-xl font-semibold text-[#873B2E] tabular-nums">
                 {sessionResults.againCount}
               </div>
             </div>
           </div>
 
           <div className="mb-6 text-left">
-            <div className="text-[11px] text-stone-500 mb-1.5">
+            <div className="text-[11px] text-[#756E65] mb-1.5">
               Stapel-Fortschritt
             </div>
             <ProgressBar stats={liveStats} size="sm" showLegend={true} />
@@ -191,9 +191,9 @@ export const StudySession: React.FC<StudySessionProps> = ({
             {sessionResults.repeatQueue.length > 0 && (
               <button
                 onClick={startFocusRound}
-                className="w-full sm:w-auto px-4 py-2 bg-stone-900 text-white text-xs font-medium rounded-lg hover:bg-stone-800 transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                className="w-full sm:w-auto px-4 py-2 bg-[#2A2723] text-[#FAF8F5] text-xs font-medium rounded-lg hover:bg-[#1C1A18] transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-2xs"
               >
-                <RotateCcw className="w-3.5 h-3.5" />
+                <RotateCcw className="w-3.5 h-3.5 text-[#D4CDC2]" />
                 <span>
                   Wiederholen ({sessionResults.repeatQueue.length})
                 </span>
@@ -202,7 +202,7 @@ export const StudySession: React.FC<StudySessionProps> = ({
 
             <button
               onClick={onFinishSession}
-              className="w-full sm:w-auto px-4 py-2 text-stone-600 hover:text-stone-900 text-xs font-medium transition-colors cursor-pointer"
+              className="w-full sm:w-auto px-4 py-2 text-[#635C54] hover:text-[#2A2723] text-xs font-medium transition-colors cursor-pointer"
             >
               Zurück zur Übersicht
             </button>
@@ -215,10 +215,10 @@ export const StudySession: React.FC<StudySessionProps> = ({
   if (!currentCard) {
     return (
       <div className="max-w-md mx-auto px-4 py-16 text-center">
-        <p className="text-stone-500 text-xs mb-3">Keine Karten vorhanden.</p>
+        <p className="text-[#756E65] text-xs mb-3">Keine Karten vorhanden.</p>
         <button
           onClick={onBackToDeck}
-          className="px-3 py-1.5 bg-stone-900 text-white text-xs rounded-lg"
+          className="px-3.5 py-1.5 bg-[#2A2723] text-[#FAF8F5] text-xs rounded-lg cursor-pointer"
         >
           Zurück
         </button>
@@ -228,26 +228,26 @@ export const StudySession: React.FC<StudySessionProps> = ({
 
   return (
     <div className="max-w-2xl mx-auto px-4 sm:px-6 py-6 flex flex-col min-h-screen justify-between">
-      {/* Top Header in Study Mode: Super clean */}
-      <div className="flex items-center justify-between py-2 border-b border-stone-200/50">
+      {/* Top Header in Study Mode */}
+      <div className="flex items-center justify-between py-2 border-b border-[#E7E2D8]">
         <button
           onClick={onBackToDeck}
-          className="inline-flex items-center gap-1 text-xs text-stone-500 hover:text-stone-800 transition-colors cursor-pointer"
+          className="inline-flex items-center gap-1 text-xs text-[#756E65] hover:text-[#2A2723] transition-colors cursor-pointer"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Beenden</span>
         </button>
 
-        <div className="text-xs text-stone-500 tabular-nums">
-          <span className="font-medium text-stone-900">{currentIndex + 1}</span> / {sessionQueue.length}
+        <div className="text-xs text-[#756E65] tabular-nums">
+          <span className="font-medium text-[#2A2723]">{currentIndex + 1}</span> / {sessionQueue.length}
         </div>
       </div>
 
       {/* Slim progress bar right under top nav */}
       <div className="pt-2 pb-4">
-        <div className="w-full bg-stone-200/50 rounded-full h-1 overflow-hidden">
+        <div className="w-full bg-[#EAE5DC] rounded-full h-1 overflow-hidden">
           <div
-            className="bg-stone-800 h-full transition-all duration-300"
+            className="bg-[#2A2723] h-full transition-all duration-300"
             style={{ width: `${((currentIndex + 1) / sessionQueue.length) * 100}%` }}
           />
         </div>
@@ -257,27 +257,27 @@ export const StudySession: React.FC<StudySessionProps> = ({
       <div className="perspective-1000 my-auto py-4">
         <div
           onClick={handleFlip}
-          className={`relative w-full min-h-[340px] sm:min-h-[380px] cursor-pointer transition-transform duration-500 transform-style-preserve-3d rounded-2xl bg-white border border-stone-200/80 shadow-xs hover:border-stone-300 ${
+          className={`relative w-full min-h-[340px] sm:min-h-[380px] cursor-pointer transition-transform duration-500 transform-style-preserve-3d rounded-2xl bg-[#FFFFFF] border border-[#E5DFD4] shadow-xs hover:border-[#CAC0B2] ${
             isFlipped ? 'rotate-y-180' : ''
           }`}
         >
           {/* Card Front */}
-          <div className="absolute inset-0 p-8 sm:p-12 flex flex-col justify-between backface-hidden rounded-2xl bg-white">
-            <div className="flex items-center justify-between text-xs text-stone-400">
-              <span className="text-[11px] font-medium uppercase tracking-wider text-stone-400">
+          <div className="absolute inset-0 p-8 sm:p-12 flex flex-col justify-between backface-hidden rounded-2xl bg-[#FFFFFF]">
+            <div className="flex items-center justify-between text-xs text-[#A0998E]">
+              <span className="text-[11px] font-medium uppercase tracking-wider text-[#A0998E]">
                 Frage
               </span>
               <button
                 onClick={(e) => handleSpeak(currentCard.front, e)}
                 title="Vorlesen"
-                className="p-1 text-stone-300 hover:text-stone-600 rounded transition-colors"
+                className="p-1 text-[#BFB7AA] hover:text-[#4A433C] rounded transition-colors cursor-pointer"
               >
                 <Volume2 className="w-4 h-4" />
               </button>
             </div>
 
             <div className="my-auto text-center px-4">
-              <p className="font-serif-display text-2xl sm:text-3xl text-stone-900 leading-snug font-normal">
+              <p className="font-serif-display text-2xl sm:text-3xl text-[#24201C] leading-snug font-normal">
                 {currentCard.front}
               </p>
 
@@ -286,9 +286,9 @@ export const StudySession: React.FC<StudySessionProps> = ({
                   {showHint ? (
                     <div
                       onClick={(e) => e.stopPropagation()}
-                      className="inline-flex items-center gap-1.5 text-xs text-amber-900 bg-amber-50/80 px-3 py-1 rounded-md"
+                      className="inline-flex items-center gap-1.5 text-xs text-[#78561E] bg-[#FAF5EB] border border-[#E8DCBE] px-3 py-1 rounded-md"
                     >
-                      <Lightbulb className="w-3.5 h-3.5 text-amber-700 shrink-0" />
+                      <Lightbulb className="w-3.5 h-3.5 text-[#B08244] shrink-0" />
                       <span>{currentCard.hint}</span>
                     </div>
                   ) : (
@@ -297,7 +297,7 @@ export const StudySession: React.FC<StudySessionProps> = ({
                         e.stopPropagation();
                         setShowHint(true);
                       }}
-                      className="text-xs text-stone-400 hover:text-stone-700 transition-colors"
+                      className="text-xs text-[#A0998E] hover:text-[#4A433C] transition-colors cursor-pointer"
                     >
                       Hinweis anzeigen
                     </button>
@@ -306,81 +306,81 @@ export const StudySession: React.FC<StudySessionProps> = ({
               )}
             </div>
 
-            <div className="text-center text-[11px] text-stone-400">
-              Klicken oder <kbd className="px-1 py-0.5 bg-stone-100 rounded text-stone-500 text-[10px]">Leertaste</kbd> zum Umdrehen
+            <div className="text-center text-[11px] text-[#A0998E]">
+              Klicken oder <kbd className="px-1 py-0.5 bg-[#FAF8F5] border border-[#E6E1D7] rounded text-[#756E65] text-[10px]">Leertaste</kbd> zum Umdrehen
             </div>
           </div>
 
           {/* Card Back */}
-          <div className="absolute inset-0 p-8 sm:p-12 flex flex-col justify-between backface-hidden rotate-y-180 rounded-2xl bg-[#FCFAF7] border border-stone-200/60">
-            <div className="flex items-center justify-between text-xs text-stone-400">
-              <span className="text-[11px] font-medium uppercase tracking-wider text-stone-500">
+          <div className="absolute inset-0 p-8 sm:p-12 flex flex-col justify-between backface-hidden rotate-y-180 rounded-2xl bg-[#FDFBF8] border border-[#E3DDD2]">
+            <div className="flex items-center justify-between text-xs text-[#A0998E]">
+              <span className="text-[11px] font-medium uppercase tracking-wider text-[#857C70]">
                 Antwort
               </span>
               <button
                 onClick={(e) => handleSpeak(currentCard.back, e)}
                 title="Vorlesen"
-                className="p-1 text-stone-300 hover:text-stone-600 rounded transition-colors"
+                className="p-1 text-[#BFB7AA] hover:text-[#4A433C] rounded transition-colors cursor-pointer"
               >
                 <Volume2 className="w-4 h-4" />
               </button>
             </div>
 
             <div className="my-auto text-left px-2 sm:px-6">
-              <div className="font-serif-display text-xl sm:text-2xl text-stone-900 leading-relaxed font-normal whitespace-pre-line">
+              <div className="font-serif-display text-xl sm:text-2xl text-[#24201C] leading-relaxed font-normal whitespace-pre-line">
                 {currentCard.back}
               </div>
 
               {currentCard.hint && (
-                <div className="mt-4 text-xs text-stone-500 pt-3 border-t border-stone-200/50">
+                <div className="mt-4 text-xs text-[#756E65] pt-3 border-t border-[#E8E2D7]">
                   {currentCard.hint}
                 </div>
               )}
             </div>
 
-            <div className="text-center text-[11px] text-stone-400">
+            <div className="text-center text-[11px] text-[#A0998E]">
               Bewerte deine Erinnerung (1, 2, 3)
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom Rating Controls: Wusste ich nicht, Unsicher, Kann ich schon */}
+      {/* Bottom Rating Controls: Exquisite Calm Earth Tones */}
       <div className="py-4">
         {isFlipped ? (
           <div className="grid grid-cols-3 gap-2.5">
-            {/* 1. Wusste ich nicht */}
+            {/* 1. Wusste ich nicht: Terrakotta */}
             <button
               onClick={() => handleRate('again')}
-              className="px-3 py-2.5 rounded-xl border border-rose-200/80 bg-rose-50/50 hover:bg-rose-100/70 text-rose-900 transition-colors text-center cursor-pointer"
+              className="px-3 py-2.5 rounded-xl border border-[#E6D3CE] bg-[#FAF3F1] hover:bg-[#F4ECE9] text-[#873B2E] transition-colors text-center cursor-pointer shadow-2xs"
             >
               <div className="text-xs font-semibold">Wusste ich nicht</div>
-              <div className="text-[10px] text-rose-600 mt-0.5">Taste 1</div>
+              <div className="text-[10px] text-[#994537] mt-0.5">Taste 1</div>
             </button>
 
-            {/* 2. Unsicher */}
+            {/* 2. Unsicher: Warmes Ocker */}
             <button
               onClick={() => handleRate('hard')}
-              className="px-3 py-2.5 rounded-xl border border-amber-200/80 bg-amber-50/50 hover:bg-amber-100/70 text-amber-950 transition-colors text-center cursor-pointer"
+              className="px-3 py-2.5 rounded-xl border border-[#E8DABF] bg-[#FAF5EB] hover:bg-[#F5EEDB] text-[#78561E] transition-colors text-center cursor-pointer shadow-2xs"
             >
               <div className="text-xs font-semibold">Unsicher</div>
-              <div className="text-[10px] text-amber-700 mt-0.5">Taste 2</div>
+              <div className="text-[10px] text-[#8A6426] mt-0.5">Taste 2</div>
             </button>
 
-            {/* 3. Kann ich schon */}
+            {/* 3. Kann ich schon: Salbei */}
             <button
               onClick={() => handleRate('good')}
-              className="px-3 py-2.5 rounded-xl border border-emerald-200/80 bg-emerald-50/50 hover:bg-emerald-100/70 text-emerald-950 transition-colors text-center cursor-pointer"
+              className="px-3 py-2.5 rounded-xl border border-[#D0DDD2] bg-[#F1F5F2] hover:bg-[#E6EFE9] text-[#344D39] transition-colors text-center cursor-pointer shadow-2xs"
             >
               <div className="text-xs font-semibold">Kann ich schon</div>
-              <div className="text-[10px] text-emerald-700 mt-0.5">Taste 3</div>
+              <div className="text-[10px] text-[#425E47] mt-0.5">Taste 3</div>
             </button>
           </div>
         ) : (
           <div className="text-center">
             <button
               onClick={handleFlip}
-              className="px-6 py-2.5 bg-stone-900 text-white text-xs font-medium rounded-lg hover:bg-stone-800 transition-colors cursor-pointer"
+              className="px-6 py-2.5 bg-[#2A2723] text-[#FAF8F5] text-xs font-medium rounded-lg hover:bg-[#1C1A18] transition-colors cursor-pointer shadow-2xs"
             >
               Antwort anzeigen (Leertaste)
             </button>

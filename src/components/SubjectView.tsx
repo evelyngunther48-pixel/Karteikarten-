@@ -42,7 +42,7 @@ export const SubjectView: React.FC<SubjectViewProps> = ({
       <div className="flex items-center justify-between">
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-1.5 text-xs text-stone-500 hover:text-stone-900 transition-colors cursor-pointer"
+          className="inline-flex items-center gap-1.5 text-xs text-[#756E65] hover:text-[#2A2723] transition-colors cursor-pointer"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Alle Fächer</span>
@@ -51,11 +51,11 @@ export const SubjectView: React.FC<SubjectViewProps> = ({
         <div className="flex items-center gap-3">
           <button
             onClick={onEditSubject}
-            className="text-xs text-stone-500 hover:text-stone-800 transition-colors cursor-pointer"
+            className="text-xs text-[#756E65] hover:text-[#2A2723] transition-colors cursor-pointer"
           >
             Fach bearbeiten
           </button>
-          <span className="text-stone-300">·</span>
+          <span className="text-[#D4CDC2]">·</span>
           <button
             onClick={() => {
               if (
@@ -66,7 +66,7 @@ export const SubjectView: React.FC<SubjectViewProps> = ({
                 onDeleteSubject();
               }
             }}
-            className="text-xs text-rose-600 hover:text-rose-800 transition-colors cursor-pointer"
+            className="text-xs text-[#A05646] hover:text-[#823B2D] transition-colors cursor-pointer"
           >
             Löschen
           </button>
@@ -77,11 +77,11 @@ export const SubjectView: React.FC<SubjectViewProps> = ({
       <div className="space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-3">
           <div>
-            <h1 className="font-serif-display text-2xl sm:text-3xl text-stone-900 font-normal">
+            <h1 className="font-serif-display text-2xl sm:text-3xl text-[#2A2723] font-normal">
               {subject.title}
             </h1>
             {subject.description && (
-              <p className="text-stone-500 text-xs mt-1 max-w-xl leading-relaxed">
+              <p className="text-[#756E65] text-xs mt-1 max-w-xl leading-relaxed">
                 {subject.description}
               </p>
             )}
@@ -89,15 +89,15 @@ export const SubjectView: React.FC<SubjectViewProps> = ({
 
           <button
             onClick={onOpenCreateDeck}
-            className="px-3.5 py-1.5 bg-stone-900 text-white rounded-lg text-xs font-medium hover:bg-stone-800 transition-colors flex items-center gap-1 cursor-pointer self-start sm:self-auto shrink-0 shadow-2xs"
+            className="px-3.5 py-1.5 bg-[#2A2723] text-[#FAF8F5] rounded-lg text-xs font-medium hover:bg-[#1C1A18] transition-colors flex items-center gap-1 cursor-pointer self-start sm:self-auto shrink-0 shadow-2xs"
           >
-            <Plus className="w-3.5 h-3.5" />
+            <Plus className="w-3.5 h-3.5 text-[#D4CDC2]" />
             <span>Neuer Stapel</span>
           </button>
         </div>
 
         {/* Aggregate Progress Bar for this Subject */}
-        <div className="pt-2 border-t border-stone-200/60">
+        <div className="pt-2 border-t border-[#E7E2D8]">
           <ProgressBar stats={overallStats} size="md" showLegend={true} />
         </div>
       </div>
@@ -105,19 +105,19 @@ export const SubjectView: React.FC<SubjectViewProps> = ({
       {/* Boxenansicht (Grid of Deck Boxes) */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-stone-600">
+          <h2 className="text-xs font-semibold uppercase tracking-wider text-[#635C54]">
             Karteikartenstapel ({decks.length})
           </h2>
         </div>
 
         {decks.length === 0 ? (
-          <div className="bg-white border border-stone-200/70 rounded-xl p-10 text-center">
-            <p className="text-xs text-stone-500 mb-3">
+          <div className="bg-[#FAF8F5] border border-[#E6E1D7] rounded-xl p-10 text-center">
+            <p className="text-xs text-[#756E65] mb-3">
               Noch keine Stapel in diesem Fach angelegt.
             </p>
             <button
               onClick={onOpenCreateDeck}
-              className="px-3.5 py-1.5 bg-stone-900 text-white rounded-lg text-xs font-medium hover:bg-stone-800 cursor-pointer"
+              className="px-3.5 py-1.5 bg-[#2A2723] text-[#FAF8F5] rounded-lg text-xs font-medium hover:bg-[#1C1A18] cursor-pointer"
             >
               Ersten Stapel anlegen
             </button>
@@ -132,37 +132,37 @@ export const SubjectView: React.FC<SubjectViewProps> = ({
               return (
                 <div
                   key={deck.id}
-                  className="bg-white border border-stone-200/80 rounded-xl p-5 hover:border-stone-400/90 transition-all hover:shadow-xs flex flex-col justify-between group"
+                  className="bg-[#FFFFFF] border border-[#E6E1D7] rounded-xl p-5 hover:border-[#C8BFB0] hover:bg-[#FDFBF8] transition-all flex flex-col justify-between group"
                 >
                   {/* Top content of Box */}
                   <div>
                     <div className="flex items-start justify-between gap-2 mb-1.5">
                       <button
                         onClick={() => onSelectDeck(deck.id)}
-                        className="text-left font-serif-display text-base text-stone-900 font-normal hover:text-stone-700 transition-colors cursor-pointer"
+                        className="text-left font-serif-display text-base text-[#2A2723] font-normal hover:text-[#4A433C] transition-colors cursor-pointer"
                       >
                         {deck.title}
                       </button>
 
                       {dueCards.length > 0 && (
-                        <span className="text-[11px] font-semibold text-amber-700 tabular-nums shrink-0">
+                        <span className="text-[11px] font-semibold text-[#A05646] tabular-nums shrink-0">
                           {dueCards.length} fällig
                         </span>
                       )}
                     </div>
 
                     {deck.description && (
-                      <p className="text-xs text-stone-500 line-clamp-2 leading-relaxed mb-4">
+                      <p className="text-xs text-[#756E65] line-clamp-2 leading-relaxed mb-4">
                         {deck.description}
                       </p>
                     )}
                   </div>
 
                   {/* Bottom section of Box: Progress & Actions */}
-                  <div className="space-y-3 pt-3 border-t border-stone-100 mt-2">
+                  <div className="space-y-3 pt-3 border-t border-[#EFEBE4] mt-2">
                     <ProgressBar stats={stats} size="sm" showLegend={false} />
 
-                    <div className="flex items-center justify-between text-[11px] text-stone-500 tabular-nums">
+                    <div className="flex items-center justify-between text-[11px] text-[#756E65] tabular-nums">
                       <span>{deckCards.length} Karten · {stats.masteryPercentage}% beherrscht</span>
                     </div>
 
@@ -171,34 +171,34 @@ export const SubjectView: React.FC<SubjectViewProps> = ({
                         {deckCards.length > 0 && (
                           <button
                             onClick={() => onStartStudyDeck(deck.id)}
-                            className="px-2.5 py-1 bg-stone-900 text-white text-xs font-medium rounded-md hover:bg-stone-800 transition-colors flex items-center gap-1 cursor-pointer"
+                            className="px-2.5 py-1 bg-[#2A2723] text-[#FAF8F5] text-xs font-medium rounded-md hover:bg-[#1C1A18] transition-colors flex items-center gap-1 cursor-pointer"
                           >
-                            <Play className="w-2.5 h-2.5 fill-current" />
+                            <Play className="w-2.5 h-2.5 fill-current text-[#D4CDC2]" />
                             <span>Lernen</span>
                           </button>
                         )}
 
                         <button
                           onClick={() => onOpenAddCards(deck.id)}
-                          className="px-2 py-1 text-xs text-stone-700 hover:text-stone-950 hover:bg-stone-100 rounded transition-colors flex items-center gap-1 cursor-pointer"
+                          className="px-2 py-1 text-xs text-[#463F37] hover:text-[#1C1A18] hover:bg-[#EDE7DD] rounded transition-colors flex items-center gap-1 cursor-pointer"
                           title="Karte hinzufügen"
                         >
-                          <Plus className="w-3 h-3" />
+                          <Plus className="w-3 h-3 text-[#756E65]" />
                           <span>Karte</span>
                         </button>
                       </div>
 
-                      <div className="flex items-center gap-1 text-stone-400">
+                      <div className="flex items-center gap-1 text-[#9C9388]">
                         <button
                           onClick={() => onSelectDeck(deck.id)}
-                          className="p-1 hover:text-stone-800 rounded transition-colors cursor-pointer"
+                          className="p-1 hover:text-[#2A2723] rounded transition-colors cursor-pointer"
                           title="Karten verwalten"
                         >
                           <SlidersHorizontal className="w-3.5 h-3.5" />
                         </button>
                         <button
                           onClick={() => onEditDeck(deck)}
-                          className="p-1 hover:text-stone-800 rounded transition-colors cursor-pointer"
+                          className="p-1 hover:text-[#2A2723] rounded transition-colors cursor-pointer"
                           title="Stapel bearbeiten"
                         >
                           <Edit2 className="w-3 h-3" />
@@ -209,7 +209,7 @@ export const SubjectView: React.FC<SubjectViewProps> = ({
                               onDeleteDeck(deck.id);
                             }
                           }}
-                          className="p-1 hover:text-rose-600 rounded transition-colors cursor-pointer"
+                          className="p-1 hover:text-[#A05646] rounded transition-colors cursor-pointer"
                           title="Stapel löschen"
                         >
                           <Trash2 className="w-3 h-3" />

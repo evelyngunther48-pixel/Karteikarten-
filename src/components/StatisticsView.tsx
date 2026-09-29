@@ -75,58 +75,58 @@ export const StatisticsView: React.FC<StatisticsViewProps> = ({
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-10 space-y-8">
       <div>
-        <h1 className="font-serif-display text-2xl sm:text-3xl text-stone-900 font-normal">
+        <h1 className="font-serif-display text-2xl sm:text-3xl text-[#2A2723] font-normal">
           Lernfortschritt
         </h1>
-        <p className="text-xs text-stone-500 mt-1">
+        <p className="text-xs text-[#756E65] mt-1">
           Gesamtübersicht deiner Spaced-Repetition-Intervalle.
         </p>
       </div>
 
       {/* Global Mastery Card */}
       <div className="space-y-4">
-        <div className="pt-2 border-t border-stone-200/60">
+        <div className="pt-2 border-t border-[#E7E2D8]">
           <ProgressBar stats={globalStats} size="md" showLegend={true} />
         </div>
 
-        {/* Breakdown Metric Tiles */}
+        {/* Breakdown Metric Tiles in Earth Tones */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-          <div className="bg-white p-3.5 rounded-xl border border-stone-200/70">
-            <div className="flex items-center gap-1.5 text-[11px] text-stone-500 mb-0.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
+          <div className="bg-[#FFFFFF] p-3.5 rounded-xl border border-[#E6E1D7]">
+            <div className="flex items-center gap-1.5 text-[11px] text-[#756E65] mb-0.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#526654]" />
               <span>Gewusst</span>
             </div>
-            <div className="text-xl font-semibold text-stone-900 tabular-nums">
+            <div className="text-xl font-semibold text-[#344D39] tabular-nums">
               {globalStats.masteredCount}
             </div>
           </div>
 
-          <div className="bg-white p-3.5 rounded-xl border border-stone-200/70">
-            <div className="flex items-center gap-1.5 text-[11px] text-stone-500 mb-0.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+          <div className="bg-[#FFFFFF] p-3.5 rounded-xl border border-[#E6E1D7]">
+            <div className="flex items-center gap-1.5 text-[11px] text-[#756E65] mb-0.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#B08244]" />
               <span>Unsicher</span>
             </div>
-            <div className="text-xl font-semibold text-stone-900 tabular-nums">
+            <div className="text-xl font-semibold text-[#78561E] tabular-nums">
               {globalStats.unsureCount}
             </div>
           </div>
 
-          <div className="bg-white p-3.5 rounded-xl border border-stone-200/70">
-            <div className="flex items-center gap-1.5 text-[11px] text-stone-500 mb-0.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+          <div className="bg-[#FFFFFF] p-3.5 rounded-xl border border-[#E6E1D7]">
+            <div className="flex items-center gap-1.5 text-[11px] text-[#756E65] mb-0.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#A05646]" />
               <span>Wiederholen</span>
             </div>
-            <div className="text-xl font-semibold text-stone-900 tabular-nums">
+            <div className="text-xl font-semibold text-[#873B2E] tabular-nums">
               {globalStats.learningCount}
             </div>
           </div>
 
-          <div className="bg-white p-3.5 rounded-xl border border-stone-200/70">
-            <div className="flex items-center gap-1.5 text-[11px] text-stone-500 mb-0.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-stone-400" />
+          <div className="bg-[#FFFFFF] p-3.5 rounded-xl border border-[#E6E1D7]">
+            <div className="flex items-center gap-1.5 text-[11px] text-[#756E65] mb-0.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#B0A699]" />
               <span>Neu</span>
             </div>
-            <div className="text-xl font-semibold text-stone-900 tabular-nums">
+            <div className="text-xl font-semibold text-[#635C54] tabular-nums">
               {globalStats.newCount}
             </div>
           </div>
@@ -135,7 +135,7 @@ export const StatisticsView: React.FC<StatisticsViewProps> = ({
 
       {/* Upcoming 7-day schedule */}
       <div className="space-y-3">
-        <h2 className="text-xs font-semibold uppercase tracking-wider text-stone-600">
+        <h2 className="text-xs font-semibold uppercase tracking-wider text-[#635C54]">
           Wiederholungen der nächsten 7 Tage
         </h2>
 
@@ -145,12 +145,12 @@ export const StatisticsView: React.FC<StatisticsViewProps> = ({
               key={idx}
               className={`p-2.5 rounded-lg border ${
                 idx === 0
-                  ? 'border-amber-300 bg-amber-50/50'
-                  : 'border-stone-200/80 bg-white'
+                  ? 'border-[#E8DCBE] bg-[#FAF5EB]'
+                  : 'border-[#E6E1D7] bg-[#FFFFFF]'
               }`}
             >
-              <div className="text-[10px] text-stone-400">{item.label}</div>
-              <div className="text-base font-semibold text-stone-900 tabular-nums mt-0.5">
+              <div className="text-[10px] text-[#878077]">{item.label}</div>
+              <div className="text-base font-semibold text-[#2A2723] tabular-nums mt-0.5">
                 {item.count}
               </div>
             </div>
@@ -160,7 +160,7 @@ export const StatisticsView: React.FC<StatisticsViewProps> = ({
 
       {/* Breakdown per Subject */}
       <div className="space-y-4">
-        <h2 className="text-xs font-semibold uppercase tracking-wider text-stone-600">
+        <h2 className="text-xs font-semibold uppercase tracking-wider text-[#635C54]">
           Fortschritt nach Fächern
         </h2>
 
@@ -173,12 +173,12 @@ export const StatisticsView: React.FC<StatisticsViewProps> = ({
             const stats = calculateDeckStats(subjectCards);
 
             return (
-              <div key={subject.id} className="bg-white border border-stone-200/70 rounded-xl p-4">
+              <div key={subject.id} className="bg-[#FFFFFF] border border-[#E6E1D7] rounded-xl p-4">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-serif-display text-sm font-normal text-stone-900">
+                  <h3 className="font-serif-display text-sm font-normal text-[#2A2723]">
                     {subject.title}
                   </h3>
-                  <span className="text-[11px] text-stone-500 tabular-nums">
+                  <span className="text-[11px] text-[#756E65] tabular-nums">
                     {subjectDecks.length} Stapel · {subjectCards.length} Karten · {stats.masteryPercentage}%
                   </span>
                 </div>
@@ -190,18 +190,18 @@ export const StatisticsView: React.FC<StatisticsViewProps> = ({
       </div>
 
       {/* Backup and Data Management */}
-      <div className="pt-4 border-t border-stone-200/60 flex flex-wrap items-center justify-between gap-3 text-xs text-stone-500">
+      <div className="pt-4 border-t border-[#E7E2D8] flex flex-wrap items-center justify-between gap-3 text-xs text-[#756E65]">
         <div>Daten lokal im Browser gespeichert</div>
         <div className="flex items-center gap-3">
           <button
             onClick={handleExportJSON}
-            className="hover:text-stone-900 transition-colors flex items-center gap-1 cursor-pointer"
+            className="hover:text-[#2A2723] transition-colors flex items-center gap-1 cursor-pointer"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Export</span>
           </button>
           <span>·</span>
-          <label className="hover:text-stone-900 transition-colors flex items-center gap-1 cursor-pointer">
+          <label className="hover:text-[#2A2723] transition-colors flex items-center gap-1 cursor-pointer">
             <Upload className="w-3.5 h-3.5" />
             <span>Import</span>
             <input type="file" accept=".json" onChange={handleFileImport} className="hidden" />
@@ -213,7 +213,7 @@ export const StatisticsView: React.FC<StatisticsViewProps> = ({
                 onResetAllData();
               }
             }}
-            className="hover:text-rose-700 transition-colors cursor-pointer"
+            className="hover:text-[#A05646] transition-colors cursor-pointer"
           >
             Zurücksetzen
           </button>

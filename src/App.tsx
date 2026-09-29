@@ -309,7 +309,7 @@ export default function App() {
         : cards.filter((c) => c.deckId === activeStudySession.deck.id);
 
     return (
-      <div className="min-h-screen bg-[#FAF9F6]">
+      <div className="min-h-screen bg-[#F7F5F0]">
         <StudySession
           deck={activeStudySession.deck}
           cards={activeStudySession.studyCards}
@@ -323,7 +323,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF9F6]">
+    <div className="min-h-screen flex flex-col bg-[#F7F5F0]">
       {/* Quiet top header */}
       <Header
         activeTab={activeTab}
